@@ -1,9 +1,19 @@
 jsonp-body
 =======
 
-[![Build Status](https://secure.travis-ci.org/node-modules/jsonp-body.png)](http://travis-ci.org/node-modules/jsonp-body)
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![Gittip][gittip-image]][gittip-url]
 
-[![NPM](https://nodei.co/npm/jsonp-body.png?downloads=true&stars=true)](https://nodei.co/npm/jsonp-body/)
+[npm-image]: https://img.shields.io/npm/v/jsonp-body.svg?style=flat
+[npm-url]: https://npmjs.org/package/jsonp-body
+[travis-image]: https://img.shields.io/travis/node-modules/jsonp-body.svg?style=flat
+[travis-url]: https://travis-ci.org/node-modules/jsonp-body
+[coveralls-image]: https://img.shields.io/coveralls/node-modules/jsonp-body.svg?style=flat
+[coveralls-url]: https://coveralls.io/r/node-modules/jsonp-body?branch=master
+[gittip-image]: https://img.shields.io/gittip/fengmk2.svg?style=flat
+[gittip-url]: https://www.gittip.com/fengmk2/
 
 ![logo](https://raw.github.com/node-modules/jsonp-body/master/logo.png)
 
