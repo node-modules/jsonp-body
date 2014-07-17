@@ -36,6 +36,13 @@ describe('index.test.js', function () {
     jsonp({foo: 'bar'}, [null]).should.equal('{"foo":"bar"}');
   });
 
+  it('should replace unsafe characters', function () {
+    jsonp({foo: 'bar'}, '~~~```fn---')
+      .should.equal('/**/ typeof fn === \'function\' && fn({"foo":"bar"});');
+    jsonp({foo: 'bar'}, ['fn哈哈\\!@#%^&*(){},?/ \tok'])
+      .should.equal('/**/ typeof fnok === \'function\' && fnok({"foo":"bar"});');
+  });
+
   it('should handle \\u2028 and \\u2029', function () {
     jsonp({foo: 'bar\u2029-ok\u2028'}, 'fn2')
       .should.equal('/**/ typeof fn2 === \'function\' && fn2({"foo":"bar\\u2029-ok\\u2028"});');
