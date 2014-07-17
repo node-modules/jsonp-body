@@ -3,8 +3,6 @@ jsonp-body
 
 [![Build Status](https://secure.travis-ci.org/node-modules/jsonp-body.png)](http://travis-ci.org/node-modules/jsonp-body)
 
-[![Dependency Status](https://gemnasium.com/node-modules/jsonp-body.png)](https://gemnasium.com/node-modules/jsonp-body)
-
 [![NPM](https://nodei.co/npm/jsonp-body.png?downloads=true&stars=true)](https://nodei.co/npm/jsonp-body/)
 
 ![logo](https://raw.github.com/node-modules/jsonp-body/master/logo.png)
