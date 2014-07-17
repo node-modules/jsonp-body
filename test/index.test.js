@@ -46,7 +46,9 @@ describe('index.test.js', function () {
       data.should.eql({foo: 'bar\u2029-ok\u2028'});
       done();
     }
+    /* jshint ignore:start */
     eval(jsonp({foo: 'bar\u2029-ok\u2028'}, 'fn2'));
+    /* jshint ignore:end */
   });
 
   it('should handle buffer', function () {
