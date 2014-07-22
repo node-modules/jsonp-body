@@ -16,11 +16,12 @@
 
 module.exports = jsonp;
 
-function jsonp(obj, callback) {
+function jsonp(obj, callback, options) {
   // fixup callback when `this.query.callback` return Array
   if (Array.isArray(callback)) {
     callback = callback[0];
   }
+  var limit = options && options.limit || 512;
 
   // JSON parse vs eval fix. @see https://github.com/rack/rack-contrib/pull/37
   var body = JSON.stringify(obj)
@@ -29,6 +30,11 @@ function jsonp(obj, callback) {
 
   if (typeof callback !== 'string' || callback.length === 0) {
     return body;
+  }
+
+  // limit callback length
+  if (callback.length > limit) {
+    callback = callback.substring(0, limit);
   }
 
   // Only allow "[","]","a-zA-Z0123456789_", "$" and "." characters.

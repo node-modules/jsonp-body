@@ -62,4 +62,9 @@ describe('index.test.js', function () {
     jsonp(new Buffer('foo'), 'fn')
       .should.equal('/**/ typeof fn === \'function\' && fn(' + JSON.stringify(new Buffer('foo')) + ');');
   });
+
+  it('should limit callback length', function () {
+    jsonp(new Buffer('foo'), 'fnfn', {limit: 2})
+      .should.equal('/**/ typeof fn === \'function\' && fn(' + JSON.stringify(new Buffer('foo')) + ');');
+  });
 });
