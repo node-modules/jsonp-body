@@ -22,7 +22,7 @@ Helper to create more safe jsonp response body for [koa](http://koajs.com/) and 
 ## Install
 
 ```bash
-$ npm install jsonp-body
+$ npm install jsonp-body --save
 ```
 
 ## Usage
