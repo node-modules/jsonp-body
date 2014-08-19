@@ -46,6 +46,12 @@ app.use(function* () {
 });
 ```
 
+## Options
+
+- __limit__: length limit for callback function name, default to 512
+- __replacer__: replacer in `JSON.stringify(obj, [replacer, [space]])`
+- __space__: space in `JSON.stringify(obj, [replacer, [space]])`
+
 ## License
 
 (The MIT License)
