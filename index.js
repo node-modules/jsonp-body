@@ -21,10 +21,12 @@ function jsonp(obj, callback, options) {
   if (Array.isArray(callback)) {
     callback = callback[0];
   }
-  var limit = options && options.limit || 512;
+
+  options = options || {};
+  var limit = options.limit || 512;
 
   // JSON parse vs eval fix. @see https://github.com/rack/rack-contrib/pull/37
-  var body = JSON.stringify(obj)
+  var body = JSON.stringify(obj, options.replacer, options.space)
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
 

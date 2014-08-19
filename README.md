@@ -5,18 +5,15 @@ jsonp-body
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Gittip][gittip-image]][gittip-url]
-[![David deps][david-image]][david-url]
 
-[npm-image]: https://img.shields.io/npm/v/jsonp-body.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/jsonp-body.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/jsonp-body
-[travis-image]: https://img.shields.io/travis/node-modules/jsonp-body.svg?style=flat
+[travis-image]: https://img.shields.io/travis/node-modules/jsonp-body.svg?style=flat-square
 [travis-url]: https://travis-ci.org/node-modules/jsonp-body
-[coveralls-image]: https://img.shields.io/coveralls/node-modules/jsonp-body.svg?style=flat
+[coveralls-image]: https://img.shields.io/coveralls/node-modules/jsonp-body.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/node-modules/jsonp-body?branch=master
-[gittip-image]: https://img.shields.io/gittip/fengmk2.svg?style=flat
+[gittip-image]: https://img.shields.io/gittip/fengmk2.svg?style=flat-square
 [gittip-url]: https://www.gittip.com/fengmk2/
-[david-image]: https://img.shields.io/david/dev/node-modules/jsonp-body.svg?style=flat
-[david-url]: https://david-dm.org/node-modules/jsonp-body
 
 ![logo](https://raw.github.com/node-modules/jsonp-body/master/logo.png)
 
@@ -45,6 +42,12 @@ app.use(function* () {
   this.body = jsonp({foo: 'bar'}, this.query.callback);
 });
 ```
+
+## Options
+
+- __limit__: length limit for callback function name, default to 512
+- __replacer__: replacer in `JSON.stringify(obj, [replacer, [space]])`
+- __space__: space in `JSON.stringify(obj, [replacer, [space]])`
 
 ## License
 
