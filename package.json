@@ -6,22 +6,16 @@
   "scripts": {
     "test": "make test-all"
   },
-  "config": {
-    "cov": {
-      "threshold": 100
-    }
-  },
   "dependencies": {
 
   },
   "devDependencies": {
     "autod": "*",
     "contributors": "*",
-    "cov": "*",
     "istanbul-harmony": "*",
     "jshint": "*",
     "mocha": "*",
-    "should": "~4.0.4"
+    "should": "~4.2.1"
   },
   "homepage": "https://github.com/node-modules/jsonp-body",
   "repository": {

@@ -46,11 +46,18 @@ app.use(function* () {
 });
 ```
 
-## Options
+## API Reference
 
-- __limit__: length limit for callback function name, default to 512
-- __replacer__: replacer in `JSON.stringify(obj, [replacer, [space]])`
-- __space__: space in `JSON.stringify(obj, [replacer, [space]])`
+### #jsonp(obj, callback, options)
+
+Get `obj` jsonp string response with `callback`.
+
+- __obj__: object convert to JSON string
+- __callback__: callback function name
+- __options__: optional for `JSON.stringify`
+  - __limit__: length limit for `callback`, default to `512`
+  - __replacer__: replacer in `JSON.stringify(obj, [replacer, [space]])`
+  - __space__: space in `JSON.stringify(obj, [replacer, [space]])`
 
 ## License
 

@@ -25,6 +25,7 @@ function jsonp(obj, callback, options) {
   options = options || {};
   var limit = options.limit || 512;
 
+  // replace chars not allowed in JavaScript that are in JSON
   // JSON parse vs eval fix. @see https://github.com/rack/rack-contrib/pull/37
   var body = JSON.stringify(obj, options.replacer, options.space)
     .replace(/\u2028/g, '\\u2028')
@@ -46,5 +47,7 @@ function jsonp(obj, callback, options) {
   // @see https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4671
   // @see http://miki.it/blog/2014/7/8/abusing-jsonp-with-rosetta-flash/
   // @see http://drops.wooyun.org/tips/2554
+  //
+  // the typeof check is just to reduce client error noise
   return '/**/ typeof ' + cb + ' === \'function\' && ' + cb + '(' + body + ');';
 }

@@ -1,7 +1,7 @@
 /**!
  * jsonp-body - test/index.test.js
  *
- * Copyright(c) 2014 fengmk2 and other contributors.
+ * Copyright(c) fengmk2 and other contributors.
  * MIT Licensed
  *
  * Authors:
