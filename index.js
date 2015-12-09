@@ -1,11 +1,9 @@
-/**!
- * jsonp-body - index.js
- *
- * Copyright(c) fengmk2 and other contributors.
+/**
+ * Copyright(c) node-modules and other contributors.
  * MIT Licensed
  *
  * Authors:
- *   fengmk2 <fengmk2@gmail.com> (http://fengmk2.github.com)
+ *   fengmk2 <fengmk2@gmail.com> (http://fengmk2.com)
  */
 
 'use strict';
@@ -41,7 +39,7 @@ function jsonp(obj, callback, options) {
   }
 
   // Only allow "[","]","a-zA-Z0123456789_", "$" and "." characters.
-  var cb = callback.replace(/[^\[\]\w$.]/g, '');
+  var cb = callback.replace(/[^\[\]\w\$\.]+/g, '');
 
   // the /**/ is a specific security mitigation for "Rosetta Flash JSONP abuse"
   // @see https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4671
