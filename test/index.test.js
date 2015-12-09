@@ -1,11 +1,9 @@
-/**!
- * jsonp-body - test/index.test.js
- *
- * Copyright(c) fengmk2 and other contributors.
+/**
+ * Copyright(c) node-modules and other contributors.
  * MIT Licensed
  *
  * Authors:
- *   fengmk2 <fengmk2@gmail.com> (http://fengmk2.github.com)
+ *   fengmk2 <fengmk2@gmail.com> (http://fengmk2.com)
  */
 
 "use strict";
@@ -19,6 +17,8 @@ var jsonp = require('../');
 
 describe('index.test.js', function () {
   it('should return with padding', function () {
+    jsonp({foo: 'bar'}, 'f.f[1]$')
+      .should.equal('/**/ typeof f.f[1]$ === \'function\' && f.f[1]$({"foo":"bar"});');
     jsonp({foo: 'bar'}, 'fn')
       .should.equal('/**/ typeof fn === \'function\' && fn({"foo":"bar"});');
     jsonp({foo: 'bar'}, ['fn'])
@@ -37,7 +37,7 @@ describe('index.test.js', function () {
   });
 
   it('should replace unsafe characters', function () {
-    jsonp({foo: 'bar'}, '~~~```fn---')
+    jsonp({foo: 'bar'}, '~~~```fn---中文\u1231')
       .should.equal('/**/ typeof fn === \'function\' && fn({"foo":"bar"});');
     jsonp({foo: 'bar'}, ['fn哈哈\\!@#%^&*(){},?/ \tok'])
       .should.equal('/**/ typeof fnok === \'function\' && fnok({"foo":"bar"});');
