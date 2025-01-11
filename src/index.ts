@@ -1,31 +1,23 @@
-/**
- * Copyright(c) node-modules and other contributors.
- * MIT Licensed
- *
- * Authors:
- *   fengmk2 <fengmk2@gmail.com> (http://fengmk2.com)
- */
+interface Options {
+  /** length limit for callback function name, default to `512` */
+  limit?: number;
+  /** replacer in `JSON.stringify(obj, [replacer, [space]])` */
+  replacer?: Parameters<typeof JSON.stringify>[1];
+  /** space in `JSON.stringify(obj, [replacer, [space]])` */
+  space?: Parameters<typeof JSON.stringify>[2];
+}
 
-'use strict';
-
-/**
- * Module dependencies.
- */
-
-module.exports = jsonp;
-
-function jsonp(obj, callback, options) {
+export function jsonp(obj: any, callback?: string | string[], options: Options = {}): string {
   // fixup callback when `this.query.callback` return Array
   if (Array.isArray(callback)) {
     callback = callback[0];
   }
 
-  options = options || {};
-  var limit = options.limit || 512;
+  const limit = options.limit ?? 512;
 
   // replace chars not allowed in JavaScript that are in JSON
   // JSON parse vs eval fix. @see https://github.com/rack/rack-contrib/pull/37
-  var body = JSON.stringify(obj, options.replacer, options.space)
+  const body = JSON.stringify(obj, options.replacer, options.space)
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
 
@@ -39,7 +31,7 @@ function jsonp(obj, callback, options) {
   }
 
   // Only allow "[","]","a-zA-Z0123456789_", "$" and "." characters.
-  var cb = callback.replace(/[^\[\]\w\$\.]+/g, '');
+  const cb = callback.replace(/[^\[\]\w\$\.]+/g, '');
 
   // the /**/ is a specific security mitigation for "Rosetta Flash JSONP abuse"
   // @see https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4671
