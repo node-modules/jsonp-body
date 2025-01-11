@@ -1,33 +1,14 @@
 {
   "name": "jsonp-body",
   "version": "1.1.0",
-  "description": "Helper to create more safe jsonp response body for koa and other web framework.",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "scripts": {
-    "test": "mocha test/*.test.js",
-    "test-cov": "istanbul cover _mocha -- test/*.test.js"
-  },
-  "dependencies": {
-
-  },
-  "devDependencies": {
-    "autod": "*",
-    "contributors": "*",
-    "istanbul": "*",
-    "jshint": "*",
-    "mocha": "*",
-    "should": "7"
-  },
+  "description": "Helper to create more safe jsonp response body for koa and other web framework",
   "homepage": "https://github.com/node-modules/jsonp-body",
   "repository": {
     "type": "git",
-    "url": "git://github.com/node-modules/jsonp-body.git",
-    "web": "https://github.com/node-modules/jsonp-body"
+    "url": "git://github.com/node-modules/jsonp-body.git"
   },
   "bugs": {
-    "url": "https://github.com/node-modules/jsonp-body/issues",
-    "email": "fengmk2@gmail.com"
+    "url": "https://github.com/node-modules/jsonp-body/issues"
   },
   "keywords": [
     "jsonp",
@@ -36,9 +17,60 @@
     "CVE-2014-4671",
     "abusing-jsonp-with-rosetta-flash"
   ],
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "author": "fengmk2 <fengmk2@gmail.com> (https://github.com/fengmk2)",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">= 18.19.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.1",
+    "@eggjs/tsconfig": "1",
+    "@types/node": "22",
+    "@types/mocha": "10",
+    "@eggjs/bin": "7",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "rimraf": "6",
+    "tshy": "3",
+    "tshy-after": "1",
+    "typescript": "5"
+  },
+  "scripts": {
+    "lint": "eslint --cache src test --ext .ts",
+    "pretest": "npm run clean && npm run lint -- --fix",
+    "test": "egg-bin test",
+    "preci": "npm run clean &&  npm run lint",
+    "ci": "egg-bin cov",
+    "postci": "npm run prepublishOnly && npm run clean",
+    "clean": "rimraf dist",
+    "prepublishOnly": "tshy && tshy-after && attw --pack"
+  },
+  "type": "module",
+  "tshy": {
+    "exports": {
+      ".": "./src/index.ts",
+      "./package.json": "./package.json"
+    }
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "types": "./dist/commonjs/index.d.ts",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js"
 }
