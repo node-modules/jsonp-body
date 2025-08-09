@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "extends": [
+    "./node_modules/@eggjs/oxlint-config/.oxlintrc.json"
+  ],
+  "rules": {
+    "func-names": "allow",
+    "typescript/no-explicit-any": "allow",
+    "unicorn/prefer-string-raw": "allow",
+    "unicorn/prefer-string-replace-all": "allow",
+    "unicorn/prefer-string-slice": "allow",
+    "no-useless-escape": "allow",
+    "typescript/prefer-ts-expect-error": "allow"
+  }
+}
