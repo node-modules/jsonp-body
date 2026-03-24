@@ -1,6 +1,7 @@
 # jsonp-body
 
 [![NPM version][npm-image]][npm-url]
+[![Hypercommit](https://img.shields.io/badge/Hypercommit-DB2475)](https://hypercommit.com/jsonp-body)
 [![Node.js CI](https://github.com/node-modules/jsonp-body/actions/workflows/nodejs.yml/badge.svg)](https://github.com/node-modules/jsonp-body/actions/workflows/nodejs.yml)
 [![Test coverage][codecov-image]][codecov-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
